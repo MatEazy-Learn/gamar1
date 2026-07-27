@@ -151,7 +151,7 @@
             <div class="flex items-center justify-between h-16 md:h-20">
                 <a href="#home" class="flex items-center gap-3 group">
                     <div class="relative w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden shadow-lg shadow-accent/20 group-hover:scale-105 transition-transform ring-1 ring-white/10">
-                        <img src="logo.png" alt="لوغو منصة القمر" class="w-full h-full object-cover" id="logo.pngHeader">
+                        <img src="logo.png" alt="لوغو منصة القمر" class="w-full h-full object-cover" id="logoHeader">
                     </div>
                     <div>
                         <h1 class="text-base md:text-lg font-bold text-white leading-tight tracking-wide">منصة القمر</h1>
@@ -1004,7 +1004,7 @@
         // PWA Setup
         // ============================================
         (function setupPWA() {
-            const iconSVG = (size) => `data:image/svg+xml,` + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}"><rect width="${size}" height="${size}" rx="128" fill="#0F172A"/><path fill="none" stroke="#0EA5E9" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" d="M96 320 L224 192 288 256 416 128"/><circle cx="${size/2}" cy="${size/2}" r="192" fill="none" stroke="#0EA5E9" stroke-width="32"/></svg>`);
+            const appIcon = 'logo.png';
             const manifest = {
                 name: "منصة القمر للعملات الرقمية",
                 short_name: "منصة القمر",
@@ -1017,17 +1017,16 @@
                 lang: "ar",
                 dir: "rtl",
                 icons: [
-                    { src: iconSVG(192), sizes: "192x192", type: "image/svg+xml", purpose: "any maskable" },
-                    { src: iconSVG(512), sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" }
+                    { src: appIcon, sizes: "192x192", type: "image/png", purpose: "any maskable" },
+                    { src: appIcon, sizes: "512x512", type: "image/png", purpose: "any maskable" }
                 ]
             };
             const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
             const manifestURL = URL.createObjectURL(manifestBlob);
             document.getElementById('manifestLink').href = manifestURL;
 
-            const appleIcon = 'logo.png';
-            document.getElementById('appleIconLink').href = appleIcon;
-            document.getElementById('faviconLink').href = appleIcon;
+            document.getElementById('appleIconLink').href = appIcon;
+            document.getElementById('faviconLink').href = appIcon;
 
             const swCode = `
                 const CACHE_NAME = 'al-qamar-v2';
