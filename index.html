@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="منصة القمر">
     <link rel="manifest" id="manifestLink" href="">
     <link rel="apple-touch-icon" href="" id="appleIconLink">
+    <link rel="icon" type="image/png" href="logo.png" id="faviconLink">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -149,9 +150,8 @@
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
                 <a href="#home" class="flex items-center gap-3 group">
-                    <!-- استبدل الـ src أدناه برابط لوغوك أو Base64 -->
- <div class="relative w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden shadow-lg shadow-accent/20 group-hover:scale-105 transition-transform ring-1 ring-white/10">
-                        <img src="https://placehold.co/200x200/0ea5e9/0f172a?text=QC&font=cairo" alt="لوغو منصة القمر" class="w-full h-full object-cover" id="logoHeader">
+                    <div class="relative w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden shadow-lg shadow-accent/20 group-hover:scale-105 transition-transform ring-1 ring-white/10">
+                        <img src="logo.png" alt="لوغو منصة القمر" class="w-full h-full object-cover" id="logo.pngHeader">
                     </div>
                     <div>
                         <h1 class="text-base md:text-lg font-bold text-white leading-tight tracking-wide">منصة القمر</h1>
@@ -777,9 +777,8 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center gap-2 mb-4">
-                        <!-- نفس اللوغو -->
                         <div class="relative w-10 h-10 rounded-xl overflow-hidden ring-1 ring-white/10">
-                            <img src="https://placehold.co/100x100/0ea5e9/0f172a?text=QC&font=cairo" alt="منصة القمر" class="w-full h-full object-cover">
+                            <img src="logo.png" alt="منصة القمر" class="w-full h-full object-cover">
                         </div>
                         <h3 class="font-bold text-lg text-white">منصة القمر</h3>
                     </div>
@@ -1026,8 +1025,9 @@
             const manifestURL = URL.createObjectURL(manifestBlob);
             document.getElementById('manifestLink').href = manifestURL;
 
-            const appleIcon = iconSVG(180);
+            const appleIcon = 'logo.png';
             document.getElementById('appleIconLink').href = appleIcon;
+            document.getElementById('faviconLink').href = appleIcon;
 
             const swCode = `
                 const CACHE_NAME = 'al-qamar-v2';
